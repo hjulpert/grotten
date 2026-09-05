@@ -1,4 +1,4 @@
-//countdown kode
+// countdown kode
 const releaseDate = new Date("2026-10-13T00:00:00");
 
 function updateCountdown() {
@@ -21,25 +21,35 @@ function updateCountdown() {
   document.getElementById("cd-secs").textContent = secs.toString().padStart(2, "0");
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+if (document.querySelector(".countdown")) {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
 
-//kode til video på startsiden som fader når man scroller
-
+// kode til hero-video og header (kun relevant på forsiden)
 const hero = document.querySelector(".hero");
-
-window.addEventListener("scroll", () => {
-  const fade = Math.max(0, 1 - window.scrollY / window.innerHeight);
-  hero.style.opacity = fade;
-});
-
-// kode til header fade
 const header = document.querySelector(".site-header");
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 100) {
+if (hero && header) {
+  const hasSeenHero = sessionStorage.getItem("heroSeen");
+
+  if (hasSeenHero) {
+    // spring hero'en over, vis header med det samme
+    window.scrollTo(0, hero.offsetHeight);
     header.classList.add("visible");
   } else {
-    header.classList.remove("visible");
+    // første besøg i denne session - husk det til næste gang
+    sessionStorage.setItem("heroSeen", "true");
   }
-});
+
+  window.addEventListener("scroll", () => {
+    const fade = Math.max(0, 1 - window.scrollY / window.innerHeight);
+    hero.style.opacity = fade;
+
+    if (window.scrollY > 100) {
+      header.classList.add("visible");
+    } else {
+      header.classList.remove("visible");
+    }
+  });
+}
