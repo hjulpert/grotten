@@ -53,26 +53,40 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: antiquewhite;
+background: transparent;
 }
 
 
 .nav-btn {
+  position: relative;
   padding: 14px 36px;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.5px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   background: transparent;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(8px);
+  border: none;
   cursor: pointer;
-  transition: all 0.25s ease;
   text-decoration: none;
+  z-index: 1;
 }
 
-.nav-btn:hover {
-  background-image: url("media/baggrund.png");
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background-image: url("media/btnBackground.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.nav-btn:hover::before {
+  opacity: 1;
 }
 
 /* countdown */
@@ -159,8 +173,8 @@
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    black 20%,
-    black 80%,
+    rgb(255, 255, 255) 20%,
+    rgb(255, 255, 255) 80%,
     transparent 100%
   );
 }
