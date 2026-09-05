@@ -32,3 +32,14 @@ window.addEventListener("scroll", () => {
   const fade = Math.max(0, 1 - window.scrollY / window.innerHeight);
   hero.style.opacity = fade;
 });
+
+// kode til header fade
+const header = document.querySelector(".site-header");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    header.classList.add("visible");
+  } else {
+    header.classList.remove("visible");
+  }
+});

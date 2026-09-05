@@ -1,13 +1,30 @@
-/* 
-#header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: rgb(223, 197, 245);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-*/
+/*header */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.8);
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* så man ikke kan klikke på den mens den er usynlig */
+}
 
+.site-header.visible {
+  opacity: 1;
+  pointer-events: auto; /* aktiver klik igen når den er synlig */
+}
+ /* */
 
+ /*knap */
+
+ /*
 .btn {
   padding: 14px 36px;
   font-size: 16px;
@@ -25,6 +42,40 @@
 .btn:hover {
   background: rgba(195, 153, 255, 0.1);
 }
+*/
+
+.site-header nav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: antiquewhite;
+}
+
+
+.nav-btn {
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgb(0, 0, 0);
+  background: transparent;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.nav-btn:hover {
+  background-image: url("media/baggrund.png");
+}
+
+/* countdown */
 
 .countdown {
   display: flex;
@@ -41,7 +92,7 @@
   color: #fff;
 }
 
-
+/*hero */
 .hero {
   position: fixed;
   top: 0;
@@ -73,3 +124,53 @@
   background: #fff;
   z-index: 1;
 }
+
+/*page 1 */
+#p1 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+}
+
+.IMG1 {
+  width: 30%;
+  height: auto;
+  margin: 10%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+#textP1 {
+  position: relative; /* nødvendigt for at ::after kan positionere sig korrekt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  /* fjern border-right herfra */
+}
+
+#textP1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+.site-content {
+  background-image: url("media/baggrund.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
