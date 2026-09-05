@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+@media (max-width: 768px) {
+  .hero-video {
+    object-position: center 30%; /* juster tallet for at vise en anden del af videoen */
+  }
+}
 /*header */
 .site-header {
   position: fixed;
@@ -53,40 +58,24 @@
   top: 0;
   left: 0;
   width: 100%;
-background: transparent;
+  background: transparent;
 }
 
 
 .nav-btn {
-  position: relative;
   padding: 14px 36px;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.5px;
   color: rgb(255, 255, 255);
   background: transparent;
-  border: none;
   cursor: pointer;
+  transition: all 0.25s ease;
   text-decoration: none;
-  z-index: 1;
 }
 
-.nav-btn::before {
-  content: "";
-  position: absolute;
-  inset: -20px;
-  background-image: url("media/btnBackground.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.nav-btn:hover::before {
-  opacity: 1;
+.nav-btn:hover {
+  background-image: url("media/baggrund.png");
 }
 
 /* countdown */
