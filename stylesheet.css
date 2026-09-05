@@ -1,23 +1,75 @@
+/* 
 #header {
   position: sticky;
   top: 0;
   z-index: 100;
+  background-color: rgb(223, 197, 245);
 }
+*/
+
 
 .btn {
   padding: 14px 36px;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.5px;
-  color: #0095ff;
-  background: rgba(0, 149, 255, 0.05);
+  color: rgb(255, 255, 255);
+  background: rgba(195, 153, 255, 0.455);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(8px);
-  border: 2px solid rgba(0, 149, 255, 1);
+  border: 2px solid rgba(195, 153, 255, 1);
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .btn:hover {
-  background: rgba(0, 149, 255, 0.1);
+  background: rgba(195, 153, 255, 0.1);
+}
+
+.countdown {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.countdown-num {
+  font-size: 32px;
+  font-weight: 500;
+}
+.countdown-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.site-content {
+  position: relative;
+  margin-top: 100vh;
+  background: #fff;
+  z-index: 1;
 }
